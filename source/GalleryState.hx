@@ -54,7 +54,7 @@ class GalleryState extends MusicBeatState
     var backspace:FlxSprite;
     var intendedColor:Int;
 	var colorTween:FlxTween;
-    var imagePath:String = "gallery/";
+    var imagePath:String = "menus/gallery/";
     var openLink:String;
 
     override public function create():Void
@@ -71,7 +71,7 @@ class GalleryState extends MusicBeatState
 		transOut = FlxTransitionableState.defaultTransOut;
 
         //Setup the bars
-        background = new FlxSprite(10, 50).loadGraphic(Paths.image("gallery/ui/bars"));
+        background = new FlxSprite(10, 50).loadGraphic(Paths.image("menus/gallery/ui/bars"));
         background.setGraphicSize(Std.int(background.width * 1));
         background.screenCenter();
         add(background);
@@ -119,8 +119,8 @@ class GalleryState extends MusicBeatState
         titleText.setFormat(Paths.font("pkmndp.ttf"), 32);
         add(titleText);
 
-        backspace = new FlxSprite(-0, 560);
-        backspace.frames = Paths.getSparrowAtlas('gallery/ui/backspace');
+        backspace = new FlxSprite(-0, 580);
+        backspace.frames = Paths.getSparrowAtlas('menus/gallery/ui/backspace');
         backspace.animation.addByPrefix('backspace to exit white0', "backspace to exit white0", 24);
         backspace.animation.play('backspace to exit white0');
         backspace.updateHitbox();

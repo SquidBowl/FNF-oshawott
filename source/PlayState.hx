@@ -129,6 +129,8 @@ class PlayState extends MusicBeatState
 	public var GF_X:Float = 400;
 	public var GF_Y:Float = 130;
 
+	public var dsUI:FlxSprite;
+
 	public var songSpeedTween:FlxTween;
 	public var songSpeed(default, set):Float = 1;
 	public var songSpeedType:String = "multiplicative";
@@ -793,6 +795,14 @@ class PlayState extends MusicBeatState
 		strumLine = new FlxSprite(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, 50).makeGraphic(FlxG.width, 10);
 		if(ClientPrefs.downScroll) strumLine.y = FlxG.height - 150;
 		strumLine.scrollFactor.set();
+
+		if (Paths.formatToSongPath(SONG.song) == 'asperita' || Paths.formatToSongPath(SONG.song) == 'asperita-shiny' || Paths.formatToSongPath(SONG.song) == 'nuvema') {
+		dsUI = new FlxSprite().loadGraphic(Paths.image('UI/dsUI'));
+		dsUI.setGraphicSize(Std.int(dsUI.width * 0.67));
+		dsUI.updateHitbox();
+		dsUI.cameras = [camHUD];
+		add(dsUI);
+		}
 
 		var showTime:Bool = (ClientPrefs.timeBarType != 'Disabled');
 		timeTxt = new FlxText(0, 19, 0, "", 32);

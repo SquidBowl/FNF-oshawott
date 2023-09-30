@@ -117,7 +117,7 @@ class FPS extends TextField
 		text += "\nstageDC: " + Context3DStats.contextDrawCalls(DrawCallContext.STAGE);
 		text += "\nstage3DDC: " + Context3DStats.contextDrawCalls(DrawCallContext.STAGE3D);
 		#end
-		//text += 'Psych Forever ${Main.foreverVersion}\n';
+		text += 'Psych Forever 0.1.5\n';
 
 		text += "\n";
 

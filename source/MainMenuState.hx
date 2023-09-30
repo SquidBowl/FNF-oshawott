@@ -52,24 +52,26 @@ class MainMenuState extends MusicBeatState
 
         // Create and position the FlxSprites
         options = new FlxSprite(50, initialY);
-        options.loadGraphic(Paths.image('menus/mainmenu/options'));
+        options.loadGraphic(Paths.image('menus/main/options'));
         add(options);
 
         gallery = new FlxSprite(50, initialY - 50);
-        gallery.loadGraphic(Paths.image('menus/mainmenu/gallery'));
+        gallery.loadGraphic(Paths.image('menus/main/gallery'));
         add(gallery);
 
         credits = new FlxSprite(50, initialY - 100);
-        credits.loadGraphic(Paths.image('menus/mainmenu/credits'));
+        credits.loadGraphic(Paths.image('menus/main/credits'));
         add(credits);
 
         freeplay = new FlxSprite(50, initialY - 150);
-        freeplay.loadGraphic(Paths.image('menus/mainmenu/freeplay'));
+        freeplay.loadGraphic(Paths.image('menus/main/freeplay'));
         add(freeplay);
 
         storymode = new FlxSprite(50, initialY - 200);
-        storymode.loadGraphic(Paths.image('menus/mainmenu/storymode'));
+        storymode.loadGraphic(Paths.image('menus/main/storymode'));
         add(storymode);
+
+        updateSelection(0);
 
         super.create();
         CustomFadeTransition.nextCamera = FlxG.cameras.list[FlxG.cameras.list.length - 1];     
@@ -83,14 +85,10 @@ class MainMenuState extends MusicBeatState
         if (allowInputs) {
             if (controls.UI_UP_P) {
                 FlxG.sound.play(Paths.sound('scrollMenu'));
-                selectedItem--;
-                if (selectedItem < 1) selectedItem = 5; // Wrap around to the last item
-                updateSelection();
+                updateSelection(1);
             } else if (controls.UI_DOWN_P) {
                 FlxG.sound.play(Paths.sound('scrollMenu'));
-                selectedItem++;
-                if (selectedItem > 5) selectedItem = 1; // Wrap around to the first item
-                updateSelection();
+                updateSelection(-1);
             }
             // Check for Enter key press
             if (FlxG.keys.justPressed.ENTER) {
@@ -124,13 +122,18 @@ class MainMenuState extends MusicBeatState
         }
 
         // Helper function to update the visual selection based on the selectedItem value
-        private function updateSelection(): Void {
+        public function updateSelection(?move:Int = 0): Void {
+        selectedItem += move;
+
+        if (selectedItem > 5) selectedItem = 1; // Wrap around to the first item
+        if (selectedItem < 1) selectedItem = 5; // Wrap around to the last item
+
         storymode.alpha = 0.7;
         freeplay.alpha = 0.7;
         credits.alpha = 0.7;
         gallery.alpha = 0.7;
         options.alpha = 0.7;
-
+        
         switch (selectedItem) {
             case 1:
                 storymode.alpha = 1.0;
