@@ -70,13 +70,13 @@ class FreeplayState extends MusicBeatState
 			if(weekIsLocked(WeekData.weeksList[i])) continue;
 
 			// weeks in story mode category 
-			if (mode == "story" && WeekData.weeksList[i] != "weekOsha" && WeekData.weeksList[i] != "weekOsha") continue;
+			if (mode == "story" && WeekData.weeksList[i] != "tutorial" && WeekData.weeksList[i] != "tutorial") continue;
 
 			// Weeks in freeplay category
-			if (mode == "freeplay" && WeekData.weeksList[i] != "json name here") continue;
+			if (mode == "freeplay" && WeekData.weeksList[i] != "tutorial") continue;
 
 			// Weeks in joke category
-			if (mode == "joke" && WeekData.weeksList[i] != "json name here") continue;						
+			if (mode == "joke" && WeekData.weeksList[i] != "tutorial") continue;						
 
 
 			var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[i]);
