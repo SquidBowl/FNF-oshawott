@@ -83,13 +83,11 @@ class MainMenuState extends MusicBeatState
         super.update(elapsed);
 
         if (allowInputs) {
-            if (controls.UI_UP_P) {
-                FlxG.sound.play(Paths.sound('scrollMenu'));
-                updateSelection(1);
-            } else if (controls.UI_DOWN_P) {
-                FlxG.sound.play(Paths.sound('scrollMenu'));
+            if (controls.UI_UP_P)
                 updateSelection(-1);
-            }
+            if (controls.UI_DOWN_P)
+                updateSelection(1);
+
             // Check for Enter key press
             if (FlxG.keys.justPressed.ENTER) {
                 FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
@@ -124,7 +122,7 @@ class MainMenuState extends MusicBeatState
         // Helper function to update the visual selection based on the selectedItem value
         public function updateSelection(?move:Int = 0): Void {
         selectedItem += move;
-
+        if (move != 0) FlxG.sound.play(Paths.sound('scrollMenu'));
         if (selectedItem > 5) selectedItem = 1; // Wrap around to the first item
         if (selectedItem < 1) selectedItem = 5; // Wrap around to the last item
 
@@ -133,7 +131,7 @@ class MainMenuState extends MusicBeatState
         credits.alpha = 0.7;
         gallery.alpha = 0.7;
         options.alpha = 0.7;
-        
+
         switch (selectedItem) {
             case 1:
                 storymode.alpha = 1.0;
