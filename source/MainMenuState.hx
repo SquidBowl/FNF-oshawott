@@ -52,23 +52,23 @@ class MainMenuState extends MusicBeatState
 
         // Create and position the FlxSprites
         options = new FlxSprite(50, initialY);
-        options.loadGraphic(Paths.image('menus/main/options'));
+        options.loadGraphic(Paths.image('menus/main/'));
         add(options);
 
         gallery = new FlxSprite(50, initialY - 50);
-        gallery.loadGraphic(Paths.image('menus/main/gallery'));
+        gallery.loadGraphic(Paths.image('menus/main/'));
         add(gallery);
 
         credits = new FlxSprite(50, initialY - 100);
-        credits.loadGraphic(Paths.image('menus/main/credits'));
+        credits.loadGraphic(Paths.image('menus/main/'));
         add(credits);
 
         freeplay = new FlxSprite(50, initialY - 150);
-        freeplay.loadGraphic(Paths.image('menus/main/freeplay'));
+        freeplay.loadGraphic(Paths.image('menus/main/'));
         add(freeplay);
 
         storymode = new FlxSprite(50, initialY - 200);
-        storymode.loadGraphic(Paths.image('menus/main/storymode'));
+        storymode.loadGraphic(Paths.image('menus/main/'));
         add(storymode);
 
         updateSelection(0);
