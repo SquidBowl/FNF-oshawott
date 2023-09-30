@@ -295,8 +295,8 @@ class CreditsState extends MusicBeatState
 		if(modsAdded.contains(folder)) return;
 
 		var creditsFile:String = null;
-		if(folder != null && folder.trim().length > 0) creditsFile = Paths.mods(folder + '/data/credits.txt');
-		else creditsFile = Paths.mods('data/credits.txt');
+		if(folder != null && folder.trim().length > 0) creditsFile = Paths.mods(folder + '/credits.txt');
+		else creditsFile = Paths.mods('credits.txt');
 
 		if (FileSystem.exists(creditsFile))
 		{
