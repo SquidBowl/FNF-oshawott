@@ -1,0 +1,77 @@
+{
+	"songs": [
+		[
+			"littleroot",
+			"bf-pixel",
+			[
+				75,
+				113,
+				253
+			]
+		],
+		[
+			"OshawUgh",
+			"oshawott",
+			[
+				75,
+				113,
+				253
+			]
+		],
+		[
+			"Call",
+			"ryker",
+			[
+				75,
+				113,
+				253
+			]
+		],
+		[
+			"Dance",
+			"oshawott",
+			[
+				75,
+				113,
+				253
+			]
+		],
+		[
+			"Wott",
+			"oshawott",
+			[
+				75,
+				113,
+				253
+			]
+		],
+		[
+			"Drunken Opiate",
+			"beer",
+			[
+				75,
+				113,
+				253
+			]
+		]
+	],
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"difficulties": "Normal, Shiny",
+	"weekCharacters": [
+		"dad",
+		"bf",
+		"gf"
+	],
+	"storyName": "Your New Week",
+	"weekName": "Custom Week",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"hideStoryMode": true,
+	"weekBefore": "tutorial",
+	"startUnlocked": true
+}

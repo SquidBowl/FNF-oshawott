@@ -1,6 +1,6 @@
 {
 	"songs": [
-		["Tutorial", "gf", [165, 0, 77]]
+		["Asperita", "gf", [165, 0, 77]]
 	],
 
 	"weekCharacters": [
@@ -14,7 +14,7 @@
 	"weekBefore": "tutorial",
 	"weekName": "Tutorial",
 	"startUnlocked": true,
-
+	"difficulties": "Normal, Shiny",
 	"hideStoryMode": false,
 	"hideFreeplay": false
 }
