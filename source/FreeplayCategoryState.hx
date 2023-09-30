@@ -29,7 +29,7 @@ class FreeplayCategoryState extends MusicBeatState
         Paths.clearStoredMemory();
         Paths.clearUnusedMemory();
 
-        storymode = new BGSprite('menu_story_mode', 50, 400, 0.9, 0.9, ['menu_story_mode']);
+        storymode = new BGSprite('menu_story_mode', 425, 400, 0.9, 0.9, ['menu_story_mode']);
         storymode.frames = Paths.getSparrowAtlas('category/menu_story_mode');
         storymode.animation.addByPrefix('story_mode white', "story_mode white", 8);
         storymode.animation.play('story_mode white');

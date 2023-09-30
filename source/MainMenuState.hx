@@ -100,7 +100,7 @@ class MainMenuState extends MusicBeatState
                 case 1:
                     MusicBeatState.switchState(new StoryMenuState());
                 case 2:
-                    MusicBeatState.switchState(new FreeplayState());
+                    MusicBeatState.switchState(new FreeplayCategoryState());
                 case 3:
                     MusicBeatState.switchState(new CreditsState());
                 case 4:
