@@ -46,6 +46,8 @@ class FreeplayState extends MusicBeatState
 
 	private var iconArray:Array<HealthIcon> = [];
 
+	public static var mode:String = "freeplay";
+
 	var bg:FlxSprite;
 	var intendedColor:Int;
 	var colorTween:FlxTween;
@@ -66,6 +68,16 @@ class FreeplayState extends MusicBeatState
 
 		for (i in 0...WeekData.weeksList.length) {
 			if(weekIsLocked(WeekData.weeksList[i])) continue;
+
+			// weeks in story mode category 
+			if (mode == "story" && WeekData.weeksList[i] != "weekOsha" && WeekData.weeksList[i] != "weekOsha") continue;
+
+			// Weeks in freeplay category
+			if (mode == "freeplay" && WeekData.weeksList[i] != "json name here") continue;
+
+			// Weeks in joke category
+			if (mode == "joke" && WeekData.weeksList[i] != "json name here") continue;						
+
 
 			var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[i]);
 			var leSongs:Array<String> = [];
