@@ -29,30 +29,21 @@ class FreeplayCategoryState extends MusicBeatState
         Paths.clearStoredMemory();
         Paths.clearUnusedMemory();
 
-        storymode = new BGSprite('menu_story_mode', 425, 400, 0.9, 0.9, ['menu_story_mode']);
-        storymode.frames = Paths.getSparrowAtlas('category/menu_story_mode');
-        storymode.animation.addByPrefix('story_mode white', "story_mode white", 8);
-        storymode.animation.play('story_mode white');
-        storymode.scale.set (0.8, 0.8);
+        storymode = new FlxSprite(0, 0).loadGraphic(Paths.image('menus/category/storymode'));
         storymode.screenCenter(Y);
-		add(storymode);
-
-        freeplay = new BGSprite('menu_freeplay', 600, 400, 0.9, 0.9, ['menu_freeplay']);
-        freeplay.frames = Paths.getSparrowAtlas('category/menu_freeplay');
-        freeplay.animation.addByPrefix('freeplay white', "freeplay white", 8);
-        freeplay.animation.play('freeplay white');
-        freeplay.scale.set (0.8, 0.8);
-        freeplay.screenCenter();	
-		add(freeplay);
+        storymode.x = 150;
+        add(storymode);
         
-        joke = new BGSprite('joke', 825, 400, 0.9, 0.9, ['joke']);
-        joke.frames = Paths.getSparrowAtlas('category/joke');
-        joke.animation.addByPrefix('joke', "joke", 8);
-        joke.animation.play('joke');
-        joke.scale.set (0.8, 0.8);
+        freeplay = new FlxSprite(50, 0).loadGraphic(Paths.image('menus/category/freeplay'));
+        freeplay.screenCenter(XY);
+        freeplay.x = (FlxG.width - freeplay.width) / 2; // Centering the sprite horizontally
+        add(freeplay);
+        
+        joke = new FlxSprite(0, 0).loadGraphic(Paths.image('menus/category/joke'));
         joke.screenCenter(Y);
-		add(joke);
-
+        joke.x = freeplay.x + freeplay.width + 150; // 10 pixels to the right of freeplay
+        add(joke);
+        
         super.create();
         CustomFadeTransition.nextCamera = FlxG.cameras.list[FlxG.cameras.list.length - 1];
     }	
