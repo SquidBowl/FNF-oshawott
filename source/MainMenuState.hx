@@ -14,8 +14,6 @@ import editors.MasterEditorMenu;
 import flixel.FlxObject;
 import flixel.addons.display.FlxBackdrop;
 import sys.io.File;
-import flixel.addons.display.FlxRuntimeShader;
-import openfl.filters.ShaderFilter;
 
 class MainMenuState extends MusicBeatState 
 {
@@ -26,6 +24,11 @@ class MainMenuState extends MusicBeatState
     var gallery: FlxSprite;
     var options: FlxSprite;
     var initialY:Float;
+
+    // Misc
+    var background: FlxSprite;
+    var pokeball: FlxSprite;
+    var pokeballlines: FlxSprite;
 
     // System Stuff
 	var debugKeys:Array<FlxKey>;  
@@ -49,6 +52,19 @@ class MainMenuState extends MusicBeatState
 
         // Calculate the initial Y-coordinate for the buttons
         initialY = FlxG.height - 50;
+
+        background = new FlxSprite(0, 0).loadGraphic(Paths.image('menus/main/background'));
+		background.antialiasing = ClientPrefs.globalAntialiasing;
+		add(background);
+        
+        pokeballlines = new FlxSprite(0, 1280).loadGraphic(Paths.image('menus/main/pokeballlines'));
+		pokeballlines.antialiasing = ClientPrefs.globalAntialiasing;
+		add(pokeballlines);
+
+        pokeball = new FlxSprite(0, 1280).loadGraphic(Paths.image('menus/main/pokeball'));
+		pokeball.antialiasing = ClientPrefs.globalAntialiasing;
+        FlxTween.tween(pokeball, { y: 0}, 1.4, {ease: FlxEase.quartInOut});
+		add(pokeball);
 
         // Create and position the FlxSprites
         options = new FlxSprite(50, initialY);
