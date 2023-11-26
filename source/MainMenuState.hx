@@ -55,9 +55,10 @@ class MainMenuState extends MusicBeatState
 
         background = new FlxSprite(0, 0).loadGraphic(Paths.image('menus/main/background'));
 		background.antialiasing = ClientPrefs.globalAntialiasing;
+        background.alpha = 0.6;
 		add(background);
         
-        pokeballlines = new FlxSprite(0, 1280).loadGraphic(Paths.image('menus/main/pokeballlines'));
+        pokeballlines = new FlxSprite(0, 0).loadGraphic(Paths.image('menus/main/pokeballlines'));
 		pokeballlines.antialiasing = ClientPrefs.globalAntialiasing;
 		add(pokeballlines);
 
