@@ -70,14 +70,13 @@ class FreeplayState extends MusicBeatState
 			if(weekIsLocked(WeekData.weeksList[i])) continue;
 
 			// weeks in story mode category 
-			if (mode == "story" && WeekData.weeksList[i] != "tutorial" && WeekData.weeksList[i] != "tutorial") continue;
+			if (mode == "story" && WeekData.weeksList[i] != "tutorial" && WeekData.weeksList[i] != "weekoshaf1" && WeekData.weeksList[i] != "weekoshaf2") continue;
 
 			// Weeks in freeplay category
-			if (mode == "freeplay" && WeekData.weeksList[i] != "tutorial") continue;
+			if (mode == "freeplay" && WeekData.weeksList[i] != "weekfreeplay" && WeekData.weeksList[i] != "weekfreeplay2") continue;
 
 			// Weeks in joke category
 			if (mode == "joke" && WeekData.weeksList[i] != "tutorial") continue;						
-
 
 			var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[i]);
 			var leSongs:Array<String> = [];
@@ -330,7 +329,7 @@ class FreeplayState extends MusicBeatState
 				colorTween.cancel();
 			}
 			FlxG.sound.play(Paths.sound('cancelMenu'));
-			MusicBeatState.switchState(new MainMenuState());
+			MusicBeatState.switchState(new FreeplayCategoryState());
 		}
 
 		if(ctrl)

@@ -39,9 +39,9 @@ class FreeplayCategoryState extends MusicBeatState
         freeplay.x = (FlxG.width - freeplay.width) / 2; // Centering the sprite horizontally
         add(freeplay);
         
-        joke = new FlxSprite(0, 0).loadGraphic(Paths.image('menus/category/joke'));
+        joke = new FlxSprite(0, 0).loadGraphic(Paths.image('menus/category/locked'));
         joke.screenCenter(Y);
-        joke.x = freeplay.x + freeplay.width + 150; // 10 pixels to the right of freeplay
+        joke.x = freeplay.x + freeplay.width + 50;
         add(joke);
         
         super.create();
@@ -80,9 +80,7 @@ class FreeplayCategoryState extends MusicBeatState
                     FreeplayState.mode = "freeplay";
                         trace("Free Play selected");
                     case 3: // joke
-                    MusicBeatState.switchState(new FreeplayState());
-                    FreeplayState.mode = "joke";
-                        trace("joke selected");
+                    FlxG.sound.play(Paths.sound('badnoise1'));
                 }
             }
         }
