@@ -10,6 +10,7 @@ import sys.io.File;
 import flixel.addons.display.FlxRuntimeShader;
 import openfl.filters.ShaderFilter;
 import flixel.addons.display.FlxBackdrop;
+import flixel.util.FlxColor;
 
 // CREDIT SHIT || TL;DR DO NOT USE MY SHIT!
 // Hi this was made by SquidBowl and you're not allowed to use this anywhere else, even with credit. Go and make your own. 
@@ -22,12 +23,21 @@ class FreeplayCategoryState extends MusicBeatState
     var freeplay: FlxSprite;
     var joke: FlxSprite;
     var bg:FlxSprite;
-    var selectedItem: Int = 1; // 1 represents story mode, 2 represents free play, 3 represents joke
+    var selectedItem: Int = 1;
     public static var mode:String = "freeplay";
+    var shader:FlxRuntimeShader;
 
     override public function create(): Void {
         Paths.clearStoredMemory();
         Paths.clearUnusedMemory();
+
+        shader = new FlxRuntimeShader(File.getContent(Paths.shaderFragment("water")));
+        shader.setFloat("iTime", 0);
+
+        var background: FlxSprite = new FlxSprite(0, 0);
+        background.makeGraphic(1280, 720, 0xFF0000FF);
+        background.shader = shader;
+        add(background);
 
         storymode = new FlxSprite(0, 0).loadGraphic(Paths.image('menus/category/storymode'));
         storymode.screenCenter(Y);
@@ -36,12 +46,12 @@ class FreeplayCategoryState extends MusicBeatState
         
         freeplay = new FlxSprite(50, 0).loadGraphic(Paths.image('menus/category/freeplay'));
         freeplay.screenCenter(XY);
-        freeplay.x = (FlxG.width - freeplay.width) / 2; // Centering the sprite horizontally
+        freeplay.x = (FlxG.width - freeplay.width) / 2;
         add(freeplay);
         
-        joke = new FlxSprite(0, 0).loadGraphic(Paths.image('menus/category/joke'));
+        joke = new FlxSprite(0, 0).loadGraphic(Paths.image('menus/category/locked'));
         joke.screenCenter(Y);
-        joke.x = freeplay.x + freeplay.width + 150; // 10 pixels to the right of freeplay
+        joke.x = freeplay.x + freeplay.width + 50;
         add(joke);
         
         super.create();
@@ -52,6 +62,8 @@ class FreeplayCategoryState extends MusicBeatState
 
     override public function update(elapsed: Float): Void {
         super.update(elapsed);
+
+        shader.setFloat("iTime", shader.getFloat("iTime") + elapsed);
 
         // Check for left and right key presses
         if (allowInputs) {
@@ -80,9 +92,7 @@ class FreeplayCategoryState extends MusicBeatState
                     FreeplayState.mode = "freeplay";
                         trace("Free Play selected");
                     case 3: // joke
-                    MusicBeatState.switchState(new FreeplayState());
-                    FreeplayState.mode = "joke";
-                        trace("joke selected");
+                    FlxG.sound.play(Paths.sound('badnoise1'));
                 }
             }
         }
