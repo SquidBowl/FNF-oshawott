@@ -69,23 +69,23 @@ class MainMenuState extends MusicBeatState
 
         // Create and position the FlxSprites
         options = new FlxSprite(50, initialY);
-        options.loadGraphic(Paths.image('menus/main/'));
+        options.loadGraphic(Paths.image('menus/main/options'))
         add(options);
 
         gallery = new FlxSprite(50, initialY - 50);
-        gallery.loadGraphic(Paths.image('menus/main/'));
+        gallery.loadGraphic(Paths.image('menus/main/gallery'));
         add(gallery);
 
         credits = new FlxSprite(50, initialY - 100);
-        credits.loadGraphic(Paths.image('menus/main/'));
+        credits.loadGraphic(Paths.image('menus/main/credits'));
         add(credits);
 
         freeplay = new FlxSprite(50, initialY - 150);
-        freeplay.loadGraphic(Paths.image('menus/main/'));
+        freeplay.loadGraphic(Paths.image('menus/main/free'));
         add(freeplay);
 
         storymode = new FlxSprite(50, initialY - 200);
-        storymode.loadGraphic(Paths.image('menus/main/'));
+        storymode.loadGraphic(Paths.image('menus/main/story'));
         add(storymode);
 
         updateSelection(0);
@@ -105,6 +105,18 @@ class MainMenuState extends MusicBeatState
             if (controls.UI_DOWN_P)
                 updateSelection(1);
 
+            if (controls.BACK && allowInputs)
+            {
+                allowInputs = false;
+                FlxG.sound.play(Paths.sound('cancelMenu'));
+                  MusicBeatState.switchState(new TitleState());
+            }
+            
+            if (FlxG.keys.anyJustPressed(debugKeys))
+            {
+                 MusicBeatState.switchState(new MasterEditorMenu());
+            }
+
             // Check for Enter key press
             if (FlxG.keys.justPressed.ENTER) {
                 FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
@@ -112,29 +124,23 @@ class MainMenuState extends MusicBeatState
                 switch (selectedItem) {
                 case 1:
                     MusicBeatState.switchState(new StoryMenuState());
+                    storymode.loadGraphic(Paths.image('menus/main/story-confirm'));
                 case 2:
                     MusicBeatState.switchState(new FreeplayCategoryState());
+                    freeplay.loadGraphic(Paths.image('menus/main/free-confirm'));
                 case 3:
                     MusicBeatState.switchState(new CreditsState());
+                    credits.loadGraphic(Paths.image('menus/main/credits-confirm'));
                 case 4:
                     MusicBeatState.switchState(new GalleryState());
+                    gallery.loadGraphic(Paths.image('menus/main/gallery-confirm'));
                 case 5:
-                    MusicBeatState.switchState(new options.OptionsState());        
-            }
-		if (controls.BACK && allowInputs)
-            {
-                allowInputs = false;
-                FlxG.sound.play(Paths.sound('cancelMenu'));
-                MusicBeatState.switchState(new TitleState());
-            }
-		    if (FlxG.keys.anyJustPressed(debugKeys))
-		        {
-				    MusicBeatState.switchState(new MasterEditorMenu());
-			    }
-        // ... rest of your code ...
+                    MusicBeatState.switchState(new options.OptionsState());  
+                    options.loadGraphic(Paths.image('menus/main/options-confirm'));      
                 }
             }
         }
+     }
 
         // Helper function to update the visual selection based on the selectedItem value
         public function updateSelection(?move:Int = 0): Void {
