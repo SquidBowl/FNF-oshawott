@@ -68,23 +68,23 @@ class MainMenuState extends MusicBeatState
 
         // Create and position the FlxSprites
         options = new FlxSprite(50, initialY);
-        options.loadGraphic(Paths.image('menus/main/'));
+        options.loadGraphic(Paths.image('menus/main/options'));
         add(options);
 
         gallery = new FlxSprite(50, initialY - 50);
-        gallery.loadGraphic(Paths.image('menus/main/'));
+        gallery.loadGraphic(Paths.image('menus/main/gallery'));
         add(gallery);
 
         credits = new FlxSprite(50, initialY - 100);
-        credits.loadGraphic(Paths.image('menus/main/'));
+        credits.loadGraphic(Paths.image('menus/main/credits'));
         add(credits);
 
         freeplay = new FlxSprite(50, initialY - 150);
-        freeplay.loadGraphic(Paths.image('menus/main/'));
+        freeplay.loadGraphic(Paths.image('menus/main/free'));
         add(freeplay);
 
         storymode = new FlxSprite(50, initialY - 200);
-        storymode.loadGraphic(Paths.image('menus/main/'));
+        storymode.loadGraphic(Paths.image('menus/main/story'));
         add(storymode);
 
         updateSelection(0);
@@ -110,14 +110,19 @@ class MainMenuState extends MusicBeatState
                 // Perform an action based on the selectedItem value
                 switch (selectedItem) {
                 case 1:
+                    storymode.loadGraphic(Paths.image('menus/main/story-confirm'));
                     MusicBeatState.switchState(new StoryMenuState());
                 case 2:
+                    freeplay.loadGraphic(Paths.image('menus/main/free-confirm'));
                     MusicBeatState.switchState(new FreeplayCategoryState());
                 case 3:
+                    credits.loadGraphic(Paths.image('menus/main/credits-confirm'));
                     MusicBeatState.switchState(new CreditsState());
                 case 4:
+                    gallery.loadGraphic(Paths.image('menus/main/gallery-confirm'));
                     MusicBeatState.switchState(new GalleryState());
                 case 5:
+                    options.loadGraphic(Paths.image('menus/main/options-confirm'));
                     MusicBeatState.switchState(new options.OptionsState());        
             }
 		if (controls.BACK && allowInputs)
