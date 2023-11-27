@@ -69,7 +69,7 @@ class MainMenuState extends MusicBeatState
 
         // Create and position the FlxSprites
         options = new FlxSprite(50, initialY);
-        options.loadGraphic(Paths.image('menus/main/options'))
+        options.loadGraphic(Paths.image('menus/main/options'));
         add(options);
 
         gallery = new FlxSprite(50, initialY - 50);
