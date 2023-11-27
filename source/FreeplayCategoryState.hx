@@ -12,9 +12,9 @@ import openfl.filters.ShaderFilter;
 import flixel.addons.display.FlxBackdrop;
 import flixel.util.FlxColor;
 
-// CREDIT SHIT || TL;DR DO NOT USE MY SHIT!
-// Hi this was made by SquidBowl and you're not allowed to use this anywhere else, even with credit. Go and make your own. 
-// This goes for everyone + I do not care who you are, do not touch my shit.
+/**
+ * @author SquidBowl/Tinkatonk
+ */
 
 class FreeplayCategoryState extends MusicBeatState 
 {

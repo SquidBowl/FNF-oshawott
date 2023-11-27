@@ -15,6 +15,10 @@ import flixel.FlxObject;
 import flixel.addons.display.FlxBackdrop;
 import sys.io.File;
 
+/**
+ * @author SquidBowl/Tinkatonk
+ */
+
 class MainMenuState extends MusicBeatState 
 {
     // Buttons

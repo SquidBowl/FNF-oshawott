@@ -13,6 +13,10 @@ import sys.io.File;
 import openfl.filters.ShaderFilter;
 import haxe.Json;
 
+/**
+ * @author SquidBowl/Tinkatonk
+ */
+
 class GalleryState extends MusicBeatState
 {
     // DATA STUFF
