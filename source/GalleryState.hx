@@ -1,204 +1,155 @@
 package;
 
-import flixel.*;
+import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.text.FlxText;
-import Controls.KeyboardScheme;
-import flixel.FlxG;
-import flixel.FlxObject;
-import flixel.effects.FlxFlicker;
-import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxGroup.FlxTypedGroup;
-import flixel.tweens.FlxEase;
-import flixel.tweens.FlxTween;
-import flixel.util.FlxColor;
-import flixel.util.FlxTimer;
-import lime.app.Application;
+
 import flixel.math.FlxMath;
-import flixel.addons.transition.FlxTransitionableState;
-import sys.FileSystem;
-import flixel.addons.ui.FlxInputText;
 import flixel.addons.display.FlxBackdrop;
-import lime.system.System;
-import sys.io.File;
+
 import flixel.addons.display.FlxRuntimeShader;
+import sys.io.File;
 import openfl.filters.ShaderFilter;
-
-// Programmed/made by SquidBowl
-// Optimized by Swords352
-// Helped port to Psych Engine by bimagamongMOP
-// Default galleryMusic theme by 
-
-// READ ME
-    // This gallery has a few things you might need to know, based on if you want to use all its features or not.
-    // It has a customizable music theme. Basically, where you can set background music of the gallery. If you want to turn this off, "//" out the line at the backspace function, and also the one that plays music.
-    // The Gallery also has the function to open links when you press enter to take you to a preferred link. To disable this, you can remove it, but it might be a little tricky. Remove the code and fix the errors that might happen.
-    // When you use the gallery, to credit me, (and the other people that helped) add a special thanks or a link on the gamebanana page linking back to the download of the gallery. 
-    // Thank you for downloading! If you have any issues feel free to private message me on gamebanana @ https://gamebanana.com/members/2041479 (Or comment on the post but I prefer you DM me)
-    // No I will not add you on Discord.
-// End of read me    
+import haxe.Json;
 
 class GalleryState extends MusicBeatState
 {
+    // DATA STUFF
     var itemGroup:FlxTypedGroup<GalleryImage>;
+
     var imagePaths:Array<String>;
     var imageDescriptions:Array<String>;
     var imageTitle:Array<String>;
     var linkOpen:Array<String>;
-    var currentIndex:Int = 0;
     var descriptionText:FlxText;
-    var titleText:FlxText;
-    var background:FlxSprite;
+    var tvShader:FlxRuntimeShader;
+
+    var currentIndex:Int = 0;
+    var allowInputs:Bool = true;
+
+    // UI STUFF
     var imageSprite:FlxSprite;
-    var bg:FlxSprite;
+    var background:FlxSprite;
+    var titleText:FlxText;
+    var bars:FlxSprite;
+    var bg:FlxSprite; 
     var backspace:FlxSprite;
-    var intendedColor:Int;
-	var colorTween:FlxTween;
+    var galleryByText:FlxText;
+    
+    // Customize the image path here
     var imagePath:String = "menus/gallery/";
-    var openLink:String;
 
     override public function create():Void
-    {
-        // idk i didnt rlly experiment w this shit if anything bugs out here just remove the 2 lines
-        Paths.clearStoredMemory();
-		Paths.clearUnusedMemory();
+    {   
+        var jsonData:String = File.getContent("assets/gallery.json");
+        var imageData:Array<ImageData> = haxe.Json.parse(jsonData);
+
+        imagePaths = [];
+        imageDescriptions = [];
+        imageTitle = [];
+        linkOpen = [];
         
-        // Place your preferred galleryMusic file in the same folder freakyMenu is in.
-        // Comment out the line if you don't want the music to change. If not the menu might be silent.
-        FlxG.sound.playMusic(Paths.music("gallerytheme"));
-
-		transIn = FlxTransitionableState.defaultTransIn;
-		transOut = FlxTransitionableState.defaultTransOut;
-
-        //Setup the bars
-        background = new FlxSprite(10, 50).loadGraphic(Paths.image("menus/gallery/ui/bars"));
-        background.setGraphicSize(Std.int(background.width * 1));
-        background.screenCenter();
-        add(background);
-
-        // Set up image paths and descriptions
-        imagePaths = [
-        "oshasnott",
-        "adamsandler",        
-        "shelf",        
-        "oshawottjoy"];
-
-        imageDescriptions = [
-        "idk wtf this is",
-        "gang",           
-        "hey it's like the song",          
-        "Happpy Osh"];
-
-        imageTitle = [
-        "Vs. oshasnott",
-        "Adam Sandler's latest hit",           
-        "Shelf Battle",         
-        "Oshawott Joy"];
-
+        for (data in imageData) {
+            imagePaths.push(data.path);
+            imageDescriptions.push(data.description);
+            imageTitle.push(data.title);
+            linkOpen.push(data.link);
+        }
+    
         itemGroup = new FlxTypedGroup<GalleryImage>();
-
-        for (id => i in imagePaths) {
+    
+        for (i in 0...imagePaths.length) {
             var newItem = new GalleryImage();
-            newItem.loadGraphic(Paths.image(imagePath + i));
-            newItem.ID = id;
+            newItem.loadGraphic(Paths.image(imagePath + imagePaths[i]));
+            newItem.ID = i;
             itemGroup.add(newItem);
         }
-        
+    
         add(itemGroup);
-
+    
         descriptionText = new FlxText(50, -100, FlxG.width - 100, imageDescriptions[currentIndex]);
-        descriptionText.setFormat(null, 25, 0xffffff, "center");
+        descriptionText.setFormat("vcr.ttf", 25, 0xffffff, "center");
         descriptionText.screenCenter();
-        descriptionText.y += 250;
-        descriptionText.setFormat(Paths.font("pkmndp.ttf"), 32);
+        descriptionText.y += 275;
+        descriptionText.setFormat(Paths.font("vcr.ttf"), 32);
         add(descriptionText);
-
+    
         titleText = new FlxText(50, 50, FlxG.width - 100, imageTitle[currentIndex]);
         titleText.screenCenter(X);
         titleText.setFormat(null, 40, 0xffffff, "center");
-        titleText.setFormat(Paths.font("pkmndp.ttf"), 32);
+        titleText.setFormat(Paths.font("vcr.ttf"), 32);
         add(titleText);
-
-        backspace = new FlxSprite(-0, 580);
+    
+        backspace = new FlxSprite(0, 560);
         backspace.frames = Paths.getSparrowAtlas('menus/gallery/ui/backspace');
         backspace.animation.addByPrefix('backspace to exit white0', "backspace to exit white0", 24);
         backspace.animation.play('backspace to exit white0');
         backspace.updateHitbox();
         add(backspace);
-        
+    
+        galleryByText = new FlxText(FlxG.width - 200, FlxG.height - 30, 200, "Gallery by SquidBowl");
+        galleryByText.setFormat("vcr.ttf", 18, 0xffffff, "center");
+        galleryByText.screenCenter(X);
+        add(galleryByText);
+
         persistentUpdate = true;
         changeSelection();
+    
         super.create();
         CustomFadeTransition.nextCamera = FlxG.cameras.list[FlxG.cameras.list.length - 1];
     }
-    
 
-    var allowInputs:Bool = true;
-    
-override public function update(elapsed:Float):Void
-{
-    super.update(elapsed);
+    override public function update(elapsed:Float):Void
+    {
+        super.update(elapsed);
 
-    // Handle left and right arrow keys to scroll through image
-    if ((controls.UI_LEFT_P || controls.UI_RIGHT_P) && allowInputs) {
-        changeSelection(controls.UI_LEFT_P ? -1 : 1);
-        FlxG.sound.play(Paths.sound("scrollMenu"));
+        if ((controls.UI_LEFT_P || controls.UI_RIGHT_P) && allowInputs) {
+            changeSelection(controls.UI_LEFT_P ? -1 : 1);
+            FlxG.sound.play(Paths.sound("scrollMenu"));
+        }
+    
+        if (controls.BACK && allowInputs)
+        {
+            allowInputs = false;
+            FlxG.sound.play(Paths.sound('cancelMenu'));
+            MusicBeatState.switchState(new MainMenuState());
+            backspace.animation.addByPrefix('backspace to exit', "backspace to exit", 12);
+            backspace.animation.play('backspace to exit');
+        }
+    
+        if (controls.ACCEPT && allowInputs)
+            CoolUtil.browserLoad(linkOpen[currentIndex]);
     }
     
-    if (controls.BACK && allowInputs)
+    private function changeSelection(i:Int = 0)
     {
-        allowInputs = false;
-        FlxG.sound.play(Paths.sound('cancelMenu'));
-        MusicBeatState.switchState(new MainMenuState());
-        backspace.animation.addByPrefix('backspace to exit', "backspace to exit", 12);
-        backspace.animation.play('backspace to exit');
-        FlxG.sound.playMusic(Paths.music("freakyMenu")); // Comment this out if not using a custom galleryMenu music theme
-    }
-
-    // Handle opening the link when the desired input (e.g., ENTER) is detected
-    if (controls.ACCEPT && allowInputs)
-    {
-        CoolUtil.browserLoad(openLink);
-
-        // After opening the link, you can handle any other actions or updates as needed.
-        // For example, you may want to play a sound, show a message, or perform other logic.
-    }
-
-}
-
+        currentIndex = FlxMath.wrap(currentIndex + i, 0, imageTitle.length - 1);
     
-    private function changeSelection(i = 0)
-    {
-    currentIndex = FlxMath.wrap(currentIndex + i, 0, imageTitle.length - 1);
+        descriptionText.text = imageDescriptions[currentIndex];
+        titleText.text = imageTitle[currentIndex]; 
 
-    descriptionText.text = imageDescriptions[currentIndex];
-
-    titleText.text = imageTitle[currentIndex]; 
-
-        // HERE IS THE GALLERY LINKS!! Change the links to whatever you want, and it's based on which image is currenty highlighted.
-        // Like for example, the cat image opens you to my youtube, while the gamebanana screenshot opens you to again, my YouTube page. Easy as that.
-            var linkOpen:Array<String> = [
-            "https://www.youtube.com/channel/UCcmSo3U6ob1C04bPz2wSNtQ",  // Image 1 Link
-            "https://www.youtube.com/channel/UCcmSo3U6ob1C04bPz2wSNtQ",  // Image 2 Link
-            "https://www.youtube.com/channel/UCcmSo3U6ob1C04bPz2wSNtQ",  // Image 3 Link
-            // Add other links here for each image
-        ];
-
-    openLink = linkOpen[currentIndex];  // Update the link based on the current index
-
-    var change = 0;
-    for (item in itemGroup) {
-        item.posX = change++ - currentIndex;
-        item.alpha = item.ID == currentIndex ? 1 : 0.6;
+        var change = 0;
+        for (item in itemGroup) {
+            item.posX = change++ - currentIndex;
+            item.alpha = (item.ID == currentIndex) ? 1 : 0.6;
         }
     }
 }
 
 class GalleryImage extends FlxSprite {
+    public var lerpSpeed:Float = 6;
     public var posX:Float = 0;
     
     override function update(elapsed:Float) {
         super.update(elapsed);
-        x = FlxMath.lerp(x, (FlxG.width - width) / 2 + posX * 780, CoolUtil.boundTo(elapsed * 3, 0, 1));
+        x = FlxMath.lerp(x, (FlxG.width - width) / 2 + posX * 760, CoolUtil.boundTo(elapsed * lerpSpeed, 0, 1));
     }
+}
+
+typedef ImageData = {
+    path:String,
+    description:String,
+    title:String,
+    link:String
 }
