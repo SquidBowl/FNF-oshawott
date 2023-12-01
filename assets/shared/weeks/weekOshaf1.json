@@ -1,33 +1,32 @@
 {
-"songs": [
-[
-"Watering",
-"oshawott",
-[
-75,
-113,
-253
-]
-]
-
-],
-"hiddenUntilUnlocked": false,
-"hideFreeplay": false,
-"weekBackground": "stage",
-"difficulties": "Normal, Shiny, Drunk",
-"weekCharacters": [
-"osha-menu",
-"bf",
-"gf"
-],
-"storyName": "The Water World",
-"weekName": "Oshawott W1",
-"freeplayColor": [
-146,
-113,
-253
-],
-"hideStoryMode": false,
-"weekBefore": "tutorial",
-"startUnlocked": true
+	"storyName": "The Water World",
+	"difficulties": "Normal, Shiny, Drunk",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"weekBefore": "tutorial",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"Watering",
+			"oshawott",
+			[
+				75,
+				113,
+				253
+			]
+		]
+	],
+	"weekCharacters": [
+		"osha-menu",
+		"bf",
+		"gf"
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "Oshawott W1"
 }
