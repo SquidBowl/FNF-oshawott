@@ -1638,10 +1638,17 @@ class PlayState extends MusicBeatState
 			// Old system for safety?? idk
 			if (health > 2) health = 2;
 		}
+		// Calculate x-coordinate for iconP1
 		iconP1.x = healthBar.barCenter + (150 * iconP1.scale.x - 150) / 2 - iconOffset;
+
+		// Calculate x-coordinate for iconP2
 		iconP2.x = healthBar.barCenter - (150 * iconP2.scale.x) / 2 - iconOffset * 2;
-		iconP1.animation.curAnim.curFrame = (healthBar.percent < 20) ? 1 : 0;
-		iconP2.animation.curAnim.curFrame = (healthBar.percent > 80) ? 1 : 0;
+
+		// Set animation frame for iconP1 based on healthBar.percent
+		iconP1.animation.curAnim.curFrame = (healthBar.percent < 20) ? 1 : ((healthBar.percent > 80) ? 2 : 0);
+
+		// Set animation frame for iconP2 based on healthBar.percent
+		iconP2.animation.curAnim.curFrame = (healthBar.percent > 80) ? 1 : ((healthBar.percent < 20) ? 2 : 0);
 
 		if (controls.justPressed('debug_2') && !endingSong && !inCutscene)
 			openCharacterEditor();
