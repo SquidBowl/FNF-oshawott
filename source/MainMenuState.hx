@@ -133,7 +133,7 @@ class MainMenuState extends MusicBeatState
                     MusicBeatState.switchState(new FreeplayCategoryState());
                     freeplay.loadGraphic(Paths.image('menus/main/free-confirm'));
                 case 3:
-                    MusicBeatState.switchState(new CreditsState());
+                    MusicBeatState.switchState(new CreditState());
                     credits.loadGraphic(Paths.image('menus/main/credits-confirm'));
                 case 4:
                     MusicBeatState.switchState(new GalleryState());
