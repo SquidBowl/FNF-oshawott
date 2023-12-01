@@ -87,7 +87,7 @@ class FreeplayState extends MusicBeatState
 			WeekData.weeksList[i] != "weekfreeplay" &&
 			WeekData.weeksList[i] != "weekfreeplay2") continue;
 			// Weeks in joke category
-			if (mode == "joke" && WeekData.weeksList[i] != "tutorial") continue;	
+			// if (mode == "joke" && WeekData.weeksList[i] != "tutorial") continue;	
 
 			var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[i]);
 			var leSongs:Array<String> = [];
