@@ -18,7 +18,7 @@ class FreeplayCategoryState extends MusicBeatState {
     var freeplay: FlxSprite;
     var joke: FlxSprite;
     var bg: FlxSprite;
-    var selectedItem: Int = 1;
+    public static var selectedItem: Int = 1;
     public static var mode: String = "freeplay";
     var shader: FlxRuntimeShader;
     var allowInputs: Bool = true;
