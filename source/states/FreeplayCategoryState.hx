@@ -12,20 +12,16 @@ import openfl.filters.ShaderFilter;
 import flixel.addons.display.FlxBackdrop;
 import flixel.util.FlxColor;
 
-/**
- * @author SquidBowl/Tinkatonk
- */
+class FreeplayCategoryState extends MusicBeatState {
 
-class FreeplayCategoryState extends MusicBeatState 
-{
-    // Variables
     var storymode: FlxSprite;
     var freeplay: FlxSprite;
     var joke: FlxSprite;
-    var bg:FlxSprite;
+    var bg: FlxSprite;
     var selectedItem: Int = 1;
-    public static var mode:String = "freeplay";
-    var shader:FlxRuntimeShader;
+    public static var mode: String = "freeplay";
+    var shader: FlxRuntimeShader;
+    var allowInputs: Bool = true;
 
     override public function create(): Void {
         Paths.clearStoredMemory();
@@ -43,22 +39,22 @@ class FreeplayCategoryState extends MusicBeatState
         storymode.screenCenter(Y);
         storymode.x = 150;
         add(storymode);
-        
+
         freeplay = new FlxSprite(50, 0).loadGraphic(Paths.image('menus/category/freeplay'));
         freeplay.screenCenter(XY);
         freeplay.x = (FlxG.width - freeplay.width) / 2;
         add(freeplay);
-        
+
         joke = new FlxSprite(0, 0).loadGraphic(Paths.image('menus/category/locked'));
         joke.screenCenter(Y);
         joke.x = freeplay.x + freeplay.width + 50;
         add(joke);
-        
+
+        updateSelection();
+
         super.create();
         CustomFadeTransition.nextCamera = FlxG.cameras.list[FlxG.cameras.list.length - 1];
-    }	
-    
-    var allowInputs: Bool = true;
+    }
 
     override public function update(elapsed: Float): Void {
         super.update(elapsed);
@@ -78,34 +74,33 @@ class FreeplayCategoryState extends MusicBeatState
                 if (selectedItem > 3) selectedItem = 1; // Wrap around to the first item
                 updateSelection();
             }
+
             // Check for Enter key press
             if (FlxG.keys.justPressed.ENTER) {
                 FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
                 // Perform an action based on the selectedItem value
                 switch (selectedItem) {
                     case 1: // Story Mode
-                    MusicBeatState.switchState(new FreeplayState());
-                    FreeplayState.mode = "story";
+                        MusicBeatState.switchState(new FreeplayState());
+                        FreeplayState.mode = "story";
                         trace("Story Mode selected");
                     case 2: // Free Play
-                    MusicBeatState.switchState(new FreeplayState());
-                    FreeplayState.mode = "freeplay";
+                        MusicBeatState.switchState(new FreeplayState());
+                        FreeplayState.mode = "freeplay";
                         trace("Free Play selected");
                     case 3: // joke
-                    FlxG.sound.play(Paths.sound('badnoise1'));
+                        FlxG.sound.play(Paths.sound('badnoise1'));
                 }
             }
         }
 
-		if (controls.BACK && allowInputs)
-            {
-                allowInputs = false;
-                FlxG.sound.play(Paths.sound('cancelMenu'));
-                MusicBeatState.switchState(new MainMenuState());
-            }
+        if (controls.BACK && allowInputs) {
+            allowInputs = false;
+            FlxG.sound.play(Paths.sound('cancelMenu'));
+            MusicBeatState.switchState(new MainMenuState());
+        }
     }
 
-    // Helper function to update the visual selection based on the selectedItem value
     private function updateSelection(): Void {
         storymode.alpha = 0.7;
         freeplay.alpha = 0.7;
