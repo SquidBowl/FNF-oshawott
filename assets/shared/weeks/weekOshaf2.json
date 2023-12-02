@@ -1,7 +1,6 @@
 {
 	"storyName": "The Water World",
 	"difficulties": "Normal, Shiny",
-	"hideFreeplay": false,
 	"weekBackground": "stage",
 	"weekBefore": "tutorial",
 	"freeplayColor": [
@@ -10,7 +9,7 @@
 		253
 	],
 	"startUnlocked": true,
-	"hideStoryMode": false,
+	"hideStoryMode": true,
 	"songs": [
 		[
 			"Shellshock",

@@ -67,30 +67,30 @@ class MainMenuState extends MusicBeatState
 		add(pokeball);
 
         // Calculate the initial Y-coordinate for the buttons
-        initialY = FlxG.height - 250;
+        initialY = FlxG.height - 450;
 
         // Create and position the FlxSprites
-        options = new FlxSprite(-650, initialY - -100);  // Subtract 100 from X-coordinate
+        options = new FlxSprite(-320, initialY - -100);  // Subtract 100 from X-coordinate
         options.loadGraphic(Paths.image('menus/main/options'));
         options.scale.set(0.3, 0.3);
         add(options);
     
-        gallery = new FlxSprite(-650, initialY - 0);  // Subtract 100 from X-coordinate
+        gallery = new FlxSprite(-320, initialY - 0);  // Subtract 100 from X-coordinate
         gallery.loadGraphic(Paths.image('menus/main/gallery'));
         gallery.scale.set(0.3, 0.3);
         add(gallery);
     
-        credits = new FlxSprite(-650, initialY - 100);  // Subtract 100 from X-coordinate
+        credits = new FlxSprite(-320, initialY - 100);  // Subtract 100 from X-coordinate
         credits.loadGraphic(Paths.image('menus/main/credits'));
         credits.scale.set(0.3, 0.3);
         add(credits);
     
-        freeplay = new FlxSprite(-650, initialY - 200);  // Subtract 100 from X-coordinate
+        freeplay = new FlxSprite(-320, initialY - 200);  // Subtract 100 from X-coordinate
         freeplay.loadGraphic(Paths.image('menus/main/free'));
         freeplay.scale.set(0.3, 0.3);
         add(freeplay);
     
-        storymode = new FlxSprite(-650, initialY - 300);  // Subtract 100 from X-coordinate
+        storymode = new FlxSprite(-320, initialY - 300);  // Subtract 100 from X-coordinate
         storymode.loadGraphic(Paths.image('menus/main/story'));
         storymode.scale.set(0.3, 0.3);
         add(storymode);
