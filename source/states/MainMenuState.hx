@@ -14,6 +14,7 @@ import states.editors.MasterEditorMenu;
 import flixel.FlxObject;
 import flixel.addons.display.FlxBackdrop;
 import sys.io.File;
+import flixel.group.FlxGroup;
 
 /**
  * @author SquidBowl/Tinkatonk
@@ -36,7 +37,7 @@ class MainMenuState extends MusicBeatState
 
     // System Stuff
 	var debugKeys:Array<FlxKey>;  
-    var selectedItem:Int = 1; // Initialize selectedItem to the first item (storymode)
+    var selectedItem:Int = 1;
 
     // System/Discord RPT
 	public static var psychEngineVersion:String = '0.6.3';
@@ -49,12 +50,8 @@ class MainMenuState extends MusicBeatState
         
         transIn = FlxTransitionableState.defaultTransIn;
         transOut = FlxTransitionableState.defaultTransOut;
- 
-        // Visuals and Buttons     
 
-        // Calculate the initial Y-coordinate for the buttons
-        initialY = FlxG.height - 50;
-
+        // Visuals and Buttons    
         background = new FlxSprite(0, 0).loadGraphic(Paths.image('menus/main/background'));
 		background.antialiasing = ClientPrefs.data.antialiasing;
         background.alpha = 0.6;
@@ -69,25 +66,33 @@ class MainMenuState extends MusicBeatState
         FlxTween.tween(pokeball, { y: 0}, 1.4, {ease: FlxEase.quartInOut});
 		add(pokeball);
 
+        // Calculate the initial Y-coordinate for the buttons
+        initialY = FlxG.height - 250;
+
         // Create and position the FlxSprites
-        options = new FlxSprite(50, initialY);
+        options = new FlxSprite(-650, initialY - -100);  // Subtract 100 from X-coordinate
         options.loadGraphic(Paths.image('menus/main/options'));
+        options.scale.set(0.3, 0.3);
         add(options);
-
-        gallery = new FlxSprite(50, initialY - 50);
+    
+        gallery = new FlxSprite(-650, initialY - 0);  // Subtract 100 from X-coordinate
         gallery.loadGraphic(Paths.image('menus/main/gallery'));
+        gallery.scale.set(0.3, 0.3);
         add(gallery);
-
-        credits = new FlxSprite(50, initialY - 100);
+    
+        credits = new FlxSprite(-650, initialY - 100);  // Subtract 100 from X-coordinate
         credits.loadGraphic(Paths.image('menus/main/credits'));
+        credits.scale.set(0.3, 0.3);
         add(credits);
-
-        freeplay = new FlxSprite(50, initialY - 150);
+    
+        freeplay = new FlxSprite(-650, initialY - 200);  // Subtract 100 from X-coordinate
         freeplay.loadGraphic(Paths.image('menus/main/free'));
+        freeplay.scale.set(0.3, 0.3);
         add(freeplay);
-
-        storymode = new FlxSprite(50, initialY - 200);
+    
+        storymode = new FlxSprite(-650, initialY - 300);  // Subtract 100 from X-coordinate
         storymode.loadGraphic(Paths.image('menus/main/story'));
+        storymode.scale.set(0.3, 0.3);
         add(storymode);
 
         updateSelection(0);
