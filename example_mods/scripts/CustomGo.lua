@@ -1,15 +1,15 @@
 function onCreate()
 	if songName == "Watering Shiny" or songName == "Shellshock shiny" or songName == "Ocean Aggrivation Shiny" then
-		makeAnimatedLuaSprite('Go Shine','UI/Go Shine',550,1060)addAnimationByPrefix('Go Shine','dance','Go Shine',40,true);
+		makeAnimatedLuaSprite('Go Shine','Go Shine',550,1060)addAnimationByPrefix('Go Shine','dance','Go Shine',40,true);
 	end
 	if songName == "OshawUgh Shiny" then
-		makeAnimatedLuaSprite('Go Shine','UI/Go Shine',130,425)addAnimationByPrefix('Go Shine','dance','Go Shine',40,true);
+		makeAnimatedLuaSprite('Go Shine','Go Shine',130,425)addAnimationByPrefix('Go Shine','dance','Go Shine',40,true);
 	end
 	if songName == "Wott Shiny" then
-		makeAnimatedLuaSprite('Go Shine','UI/Go Shine',200,460)addAnimationByPrefix('Go Shine','dance','Go Shine',40,true);
+		makeAnimatedLuaSprite('Go Shine','Go Shine',200,460)addAnimationByPrefix('Go Shine','dance','Go Shine',40,true);
 	end
 	if songName == "Figure Faceoff Shiny" or songName == "Figure Faceoff Shiny OLD" then
-		makeAnimatedLuaSprite('Go Shine','UI/Go Shine',-1200,300)addAnimationByPrefix('Go Shine','dance','Go Shine',40,true);
+		makeAnimatedLuaSprite('Go Shine','Go Shine',-1200,300)addAnimationByPrefix('Go Shine','dance','Go Shine',40,true);
 	end
 	objectPlayAnimation('Go Shine','dance',false);
 	setScrollFactor('Go Shine', 1, 1);
