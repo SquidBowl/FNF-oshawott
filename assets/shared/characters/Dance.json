@@ -1,1 +1,78 @@
-{"animations": [{"loop": true,"offsets": [0,0],"anim": "idle","fps": 30,"name": "Idle","indices": []},{"loop": false,"offsets": [92,0],"anim": "singLEFT","fps": 24,"name": "Left","indices": []},{"loop": false,"offsets": [102,0],"anim": "singDOWN","fps": 24,"name": "Down","indices": []},{"loop": false,"offsets": [1,77],"anim": "singUP","fps": 24,"name": "Up","indices": []},{"loop": false,"offsets": [1,0],"anim": "singRIGHT","fps": 24,"name": "Right","indices": []}],"no_antialiasing": false,"image": "characters/Dance","position": [720,180],"healthicon": "oshawott-gurber","flip_x": false,"healthbar_colors": [176,255,255],"camera_position": [250,-50],"sing_duration": 6.1,"scale": 2}
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": true,
+			"fps": 30,
+			"anim": "idle",
+			"indices": [],
+			"name": "Idle"
+		},
+		{
+			"offsets": [
+				92,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Left"
+		},
+		{
+			"offsets": [
+				102,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Down"
+		},
+		{
+			"offsets": [
+				1,
+				77
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "Up"
+		},
+		{
+			"offsets": [
+				1,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Right"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/Dance",
+	"position": [
+		720,
+		180
+	],
+	"healthicon": "oshawott-gurber",
+	"flip_x": false,
+	"healthbar_colors": [
+		0,
+		0,
+		0
+	],
+	"camera_position": [
+		250,
+		-50
+	],
+	"sing_duration": 6.1,
+	"scale": 2
+}
