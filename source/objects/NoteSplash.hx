@@ -18,7 +18,7 @@ class NoteSplash extends FlxSprite
 	private var _textureLoaded:String = null;
 	private var _configLoaded:String = null;
 
-	public static var defaultNoteSplash(default, never):String = 'noteSplashes/noteSplashes';
+	public static var defaultNoteSplash(default, never):String = 'notes/noteSplashes/noteSplashes';
 	public static var configs:Map<String, NoteSplashConfig> = new Map<String, NoteSplashConfig>();
 
 	public function new(x:Float = 0, y:Float = 0) {
