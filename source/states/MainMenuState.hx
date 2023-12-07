@@ -39,6 +39,9 @@ class MainMenuState extends MusicBeatState
 	var debugKeys:Array<FlxKey>;  
     var selectedItem:Int = 1;
 
+   // System/Discord RPT
+   public static var psychEngineVersion:String = '0.7.2';
+
     override public function create():Void {
 
         //System Stuff (again)
