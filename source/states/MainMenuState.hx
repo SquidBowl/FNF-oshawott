@@ -39,9 +39,6 @@ class MainMenuState extends MusicBeatState
 	var debugKeys:Array<FlxKey>;  
     var selectedItem:Int = 1;
 
-    // System/Discord RPT
-	public static var psychEngineVersion:String = '0.6.3';
-
     override public function create():Void {
 
         //System Stuff (again)
@@ -70,27 +67,27 @@ class MainMenuState extends MusicBeatState
         initialY = FlxG.height - 450;
 
         // Create and position the FlxSprites
-        options = new FlxSprite(-320, initialY - -100);  // Subtract 100 from X-coordinate
+        options = new FlxSprite(-320, initialY - -100); 
         options.loadGraphic(Paths.image('menus/main/options'));
         options.scale.set(0.3, 0.3);
         add(options);
     
-        gallery = new FlxSprite(-320, initialY - 0);  // Subtract 100 from X-coordinate
+        gallery = new FlxSprite(-320, initialY - 0); 
         gallery.loadGraphic(Paths.image('menus/main/gallery'));
         gallery.scale.set(0.3, 0.3);
         add(gallery);
     
-        credits = new FlxSprite(-320, initialY - 100);  // Subtract 100 from X-coordinate
+        credits = new FlxSprite(-320, initialY - 100);
         credits.loadGraphic(Paths.image('menus/main/credits'));
         credits.scale.set(0.3, 0.3);
         add(credits);
     
-        freeplay = new FlxSprite(-320, initialY - 200);  // Subtract 100 from X-coordinate
+        freeplay = new FlxSprite(-320, initialY - 200); 
         freeplay.loadGraphic(Paths.image('menus/main/free'));
         freeplay.scale.set(0.3, 0.3);
         add(freeplay);
     
-        storymode = new FlxSprite(-320, initialY - 300);  // Subtract 100 from X-coordinate
+        storymode = new FlxSprite(-320, initialY - 300); 
         storymode.loadGraphic(Paths.image('menus/main/story'));
         storymode.scale.set(0.3, 0.3);
         add(storymode);
@@ -154,12 +151,11 @@ class MainMenuState extends MusicBeatState
         }
      }
 
-        // Helper function to update the visual selection based on the selectedItem value
         public function updateSelection(?move:Int = 0): Void {
         selectedItem += move;
         if (move != 0) FlxG.sound.play(Paths.sound('scrollMenu'));
-        if (selectedItem > 5) selectedItem = 1; // Wrap around to the first item
-        if (selectedItem < 1) selectedItem = 5; // Wrap around to the last item
+        if (selectedItem > 5) selectedItem = 1; 
+        if (selectedItem < 1) selectedItem = 5;
 
         storymode.alpha = 0.7;
         freeplay.alpha = 0.7;
