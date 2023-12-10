@@ -40,12 +40,21 @@ class GalleryState extends MusicBeatState
     var bg:FlxSprite; 
     var backspace:FlxSprite;
     var galleryByText:FlxText;
+    var shader: FlxRuntimeShader;
     
     // Customize the image path here
     var imagePath:String = "menus/gallery/";
 
     override public function create():Void
     {   
+        shader = new FlxRuntimeShader(File.getContent(Paths.shaderFragment("water")));
+        shader.setFloat("iTime", 0);
+
+        var background: FlxSprite = new FlxSprite(0, 0);
+        background.makeGraphic(1280, 720, 0xFF0020B1);
+        background.shader = shader;
+        add(background);
+
         var jsonData:String = File.getContent("assets/shared/data/gallery.json");
         var imageData:Array<ImageData> = haxe.Json.parse(jsonData);
 
@@ -85,7 +94,7 @@ class GalleryState extends MusicBeatState
         titleText.setFormat(Paths.font("vcr.ttf"), 32);
         add(titleText);
     
-        backspace = new FlxSprite(0, 560);
+        backspace = new FlxSprite(0, 612);
         backspace.frames = Paths.getSparrowAtlas('menus/gallery/ui/backspace');
         backspace.animation.addByPrefix('backspace to exit white0', "backspace to exit white0", 24);
         backspace.animation.play('backspace to exit white0');
