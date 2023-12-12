@@ -255,7 +255,18 @@ class FreeplayState extends MusicBeatState
 
 		var shiftMult:Int = 1;
 		if(FlxG.keys.pressed.SHIFT) shiftMult = 3;
-
+		
+		if (FlxG.keys.justPressed.ONE)
+		{
+			FlxG.sound.play(Paths.sound('fuckoff'), 1.0);
+			PlayState.storyPlaylist = ['OshaNo'];
+			PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + '-hard',
+			PlayState.storyPlaylist[0].toLowerCase());
+			PlayState.campaignScore = 0;
+			PlayState.campaignMisses = 0;
+			LoadingState.loadAndSwitchState(new PlayState(), true);
+			FreeplayState.destroyFreeplayVocals();
+		}
 		if (!playingMusic)
 		{
 			scoreText.text = 'PERSONAL BEST: ' + lerpScore + ' (' + ratingSplit.join('.') + '%)';

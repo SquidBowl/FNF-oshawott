@@ -1471,7 +1471,7 @@ class PlayState extends MusicBeatState
 			babyArrow.postAddedToGroup();
 		}
 	}
-
+	
 	override function openSubState(SubState:FlxSubState)
 	{
 		stagesFunc(function(stage:BaseStage) stage.openSubState(SubState));
@@ -1599,6 +1599,16 @@ class PlayState extends MusicBeatState
 				}
 			} else {
 				boyfriendIdleTime = 0;
+			}
+		}
+
+		if (curSong == 'OshaNo')
+		{
+			if (FlxG.keys.justPressed.ONE)
+			{
+				FlxG.sound.play(Paths.sound('fuckoff'), 1.0);
+				PlayState.SONG = Song.loadFromJson('Oshano-shiny', 'Oshano');
+				LoadingState.loadAndSwitchState(new PlayState());
 			}
 		}
 
