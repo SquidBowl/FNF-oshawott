@@ -73,12 +73,12 @@
 		70,
 		-80
 	],
-	"healthicon": "oshano",
+	"healthicon": "oshawott",
 	"flip_x": false,
 	"healthbar_colors": [
-		216,
-		85,
-		142
+		238,
+		238,
+		238
 	],
 	"camera_position": [
 		50,

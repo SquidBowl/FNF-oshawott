@@ -1,1 +1,67 @@
-{"animations": [{"loop": true,"offsets": [0,0],"anim": "idle","fps": 12,"name": "bfoshano idle","indices": []},{"loop": false,"offsets": [0,0],"anim": "singLEFT","fps": 24,"name": "bfoshano right","indices": []},{"loop": false,"offsets": [0,0],"anim": "singDOWN","fps": 24,"name": "bfoshano down","indices": []},{"loop": false,"offsets": [0,0],"anim": "singUP","fps": 24,"name": "bfoshano up","indices": []},{"loop": false,"offsets": [0,0],"anim": "singRIGHT","fps": 24,"name": "bfoshano left","indices": []}],"no_antialiasing": false,"image": "characters/oshanoBF","position": [0,500],"healthicon": "bf","flip_x": false,"healthbar_colors": [49,176,209],"camera_position": [-50,40],"sing_duration": 6.1,"scale": 2}
+{
+	"animations": [
+		{
+			"offsets": [
+				-155,
+				-515
+			],
+			"indices": [],
+			"fps": 10,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "oshanobf danceleft"
+		},
+		{
+			"offsets": [
+				-155,
+				-515
+			],
+			"indices": [],
+			"fps": 10,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "oshanobf danceright"
+		},
+		{
+			"offsets": [
+				-145,
+				-518
+			],
+			"indices": [],
+			"fps": 12,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "oshanobf down"
+		},
+		{
+			"offsets": [
+				-155,
+				-515
+			],
+			"indices": [],
+			"fps": 12,
+			"anim": "singUP",
+			"loop": false,
+			"name": "oshanobf up"
+		}
+	],
+	"no_antialiasing": true,
+	"image": "characters/oshanobf",
+	"position": [
+		70,
+		-80
+	],
+	"healthicon": "bf",
+	"flip_x": true,
+	"healthbar_colors": [
+		216,
+		85,
+		142
+	],
+	"camera_position": [
+		10,
+		460
+	],
+	"sing_duration": 6.1,
+	"scale": 4.8
+}
