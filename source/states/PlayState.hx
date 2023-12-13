@@ -2245,7 +2245,6 @@ class PlayState extends MusicBeatState
 				return false;
 			}
 		}
-
 		timeBar.visible = false;
 		timeTxt.visible = false;
 		canPause = false;
@@ -2256,7 +2255,6 @@ class PlayState extends MusicBeatState
 
 		deathCounter = 0;
 		seenCutscene = false;
-
 		#if ACHIEVEMENTS_ALLOWED
 		var weekNoMiss:String = WeekData.getWeekFileName() + '_nomiss';
 		checkForAchievement([weekNoMiss, 'ur_bad', 'ur_good', 'hype', 'two_keys', 'toastie', 'debugger']);
