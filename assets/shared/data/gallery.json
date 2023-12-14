@@ -1,31 +1,31 @@
 [
     {
         "path": "adamsandler",
-        "description": "gang",
+        "description": "Made By CeloCogumelo",
         "title": "Adam Sandler's latest hit",
         "link": ""
     },
     {
         "path": "oshasnott",
-        "description": "idk wtf this is",
+        "description": "Made By TwistedClover",
         "title": "Vs oshasnott",
         "link": ""
     },
     {
         "path": "oshawottjoy",
-        "description": "wtf he's happy!!",
+        "description": "Made By PK",
         "title": "Oshawott Joy",
         "link": ""
     },
     {
         "path": "shelf",
-        "description": "hey it's like the song",
+        "description": "Made By PK",
         "title": "Shelf Battle",
         "link": ""
     },
     {
         "path": "BeerSad",
-        "description": "You're a monster",
+        "description": "Made By Cookielord",
         "title": "Damn who made him sad",
         "link": ""
     },
@@ -43,25 +43,25 @@
     },
     {
         "path": "ArtCase",
-        "description": "Wait is he eating cereal",
+        "description": "Made by J3di",
         "title": "No way oshawott is here",
         "link": ""
     },
     {
         "path": "BBG",
-        "description": "Oshawott's home",
+        "description": "Made By TwistedClover",
         "title": "Baby girl",
         "link": ""
     },
     {
         "path": "Oshawette",
-        "description": "Oshawette",
+        "description": "Made By Crerel",
         "title": "Who gave oshawott a crown",
         "link": ""
     },
     {
         "path": "Awooga",
-        "description": "Is this Asperita from hit mod vs Oshawott",
+        "description": "Made By Samko115 ",
         "title": "Awooga woof woof -Shiny Boyfriend",
         "link": ""
     },
@@ -73,14 +73,20 @@
     },
     {
         "path": "NeoPlasmaOsha",
-        "description": "Nah who let Ghetsis have an oshawott",
+        "description": "Made By Lima",
         "title": "Neo Plasma Oshawott",
         "link": ""
     },
     {
         "path": "Heckatdeath",
         "description": "Heckat killing Oshawott",
-        "title": "The man behind the slaughter",
+        "title": "Made by some_protogen",
+        "link": ""
+    },
+    {
+        "path": "Apologize",
+        "description": "NOW!!!!",
+        "title": "APOLOGIZE",
         "link": ""
     }
 ]

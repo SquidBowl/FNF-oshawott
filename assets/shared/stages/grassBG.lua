@@ -18,8 +18,6 @@ function onUpdate()
 			addLuaSprite('Battle', false);
 			scaleObject('Battle',1.5,1.5)
 			setProperty('defaultCamZoom',0.4)
-			--setProperty('boyfriend.scale.x', 4)
-			--setProperty('boyfriend.scale.y', 4)
 			setProperty('dad.scale.x', 1)
 			setProperty('dad.scale.y', 1)
 			triggerEvent('Camera Follow Pos',1600,750);
@@ -69,8 +67,6 @@ function onUpdate()
 			setCharacterY('boyfriend',750)
 			setCharacterX('dad',430)
 			setCharacterY('dad',750)
-			--setProperty('boyfriend.scale.x', 1)
-			--setProperty('boyfriend.scale.y', 1)
 			setProperty('dad.scale.x', 0.5)
 			setProperty('dad.scale.y', 0.5)
 			if songName == 'Shellshock shiny' then
@@ -84,7 +80,7 @@ function onUpdate()
 			end
 			setProperty('defaultCamZoom',0.75)
 			removeLuaSprite('Battle', true)
-			triggerEvent('Camera Follow Pos','','');
+			triggerEvent('Camera Follow Pos',1100,1200);
 			
 			noteTweenX("backx5", 4, 740, 1, "quartInOut");
             noteTweenAngle("backr5", 4, 360, 1, "quartInOut");
@@ -165,6 +161,7 @@ function onTweenCompleted(tag)
 		noteTweenAlpha("x221", 1, 0, 0.1, "linear");
 		noteTweenAlpha("x321", 2, 0, 0.1, "linear");
 		noteTweenAlpha("x421", 3, 0, 0.1, "linear");
+		triggerEvent('Camera Follow Pos','','');
 	end
 	if tag == "x121" then
 		noteTweenX("x131", 0, -500, 0.1, "quartInOut");

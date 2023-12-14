@@ -84,8 +84,7 @@ class FreeplayState extends MusicBeatState
 				WeekData.weeksList[i] != "weekOshaf2") continue;
 			// Weeks in freeplay category
 			if (mode == "freeplay" && 
-			WeekData.weeksList[i] != "weekfreeplay" &&
-			WeekData.weeksList[i] != "weekfreeplay2") continue;
+			WeekData.weeksList[i] != "weekfreeplay") continue;
 			// Weeks in joke category
 			// if (mode == "joke" && WeekData.weeksList[i] != "tutorial") continue;	
 
