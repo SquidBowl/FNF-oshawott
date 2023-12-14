@@ -2054,10 +2054,13 @@
 			]
 		],
 		"player3": null,
+		"disableNoteRGB": true,
+		"splashSkin": "nothing",
 		"song": "OshaNo Shiny",
 		"validScore": true,
 		"needsVoices": true,
 		"stage": "OshaNo",
+		"arrowSkin": "NOTE_assets-ass",
 		"bpm": 123,
 		"speed": 2.9
 	}

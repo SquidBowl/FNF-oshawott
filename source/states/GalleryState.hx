@@ -20,8 +20,8 @@ import haxe.Json;
 class GalleryState extends MusicBeatState
 {
     // DATA STUFF
-    var itemGroup:FlxTypedGroup<GalleryImage>;
 
+    var itemGroup:FlxTypedGroup<GalleryImage>;
     var imagePaths:Array<String>;
     var imageDescriptions:Array<String>;
     var imageTitle:Array<String>;
@@ -49,6 +49,8 @@ class GalleryState extends MusicBeatState
     {   
         shader = new FlxRuntimeShader(File.getContent(Paths.shaderFragment("water")));
         shader.setFloat("iTime", 0);
+
+        FlxG.sound.playMusic(Paths.music('Menu2'));
 
         var background: FlxSprite = new FlxSprite(0, 0);
         background.makeGraphic(1280, 720, 0xFF0020B1);
@@ -129,6 +131,7 @@ class GalleryState extends MusicBeatState
             MusicBeatState.switchState(new MainMenuState());
             backspace.animation.addByPrefix('backspace to exit', "backspace to exit", 12);
             backspace.animation.play('backspace to exit');
+            FlxG.sound.playMusic(Paths.music('freakyMenu'));
         }
     
         if (controls.ACCEPT && allowInputs)

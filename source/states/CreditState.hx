@@ -32,6 +32,7 @@ class CreditState extends MusicBeatState
     var CreditData: Array<CreditData>;
 
     override public function create(): Void {
+        FlxG.sound.playMusic(Paths.music('Menu2'));
         Paths.clearStoredMemory();
         Paths.clearUnusedMemory();
 
@@ -89,6 +90,7 @@ class CreditState extends MusicBeatState
         if (controls.BACK && allowInputs) {
             FlxG.sound.play(Paths.sound('cancelMenu'));
             MusicBeatState.switchState(new MainMenuState());
+            FlxG.sound.playMusic(Paths.music('freakyMenu'));
         }
 
         if (controls.UI_RIGHT_P) {

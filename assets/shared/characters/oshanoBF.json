@@ -7,7 +7,7 @@
 			],
 			"indices": [],
 			"fps": 10,
-			"anim": "singLEFT",
+			"anim": "danceLeft",
 			"loop": false,
 			"name": "oshanobf danceleft"
 		},
@@ -18,7 +18,7 @@
 			],
 			"indices": [],
 			"fps": 10,
-			"anim": "singRIGHT",
+			"anim": "danceRight",
 			"loop": false,
 			"name": "oshanobf danceright"
 		},
@@ -43,12 +43,34 @@
 			"anim": "singUP",
 			"loop": false,
 			"name": "oshanobf up"
+		},
+		{
+			"offsets": [
+				-69,
+				-508
+			],
+			"indices": [],
+			"fps": 12,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "oshanobf left"
+		},
+		{
+			"offsets": [
+				-180,
+				-515
+			],
+			"indices": [],
+			"fps": 12,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "oshanobf right"
 		}
 	],
 	"no_antialiasing": true,
 	"image": "characters/oshanobf",
 	"position": [
-		70,
+		-100,
 		-80
 	],
 	"healthicon": "bf",
@@ -63,5 +85,5 @@
 		460
 	],
 	"sing_duration": 6.1,
-	"scale": 4.8
+	"scale": 2
 }

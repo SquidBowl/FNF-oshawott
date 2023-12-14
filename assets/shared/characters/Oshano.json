@@ -70,7 +70,7 @@
 	"no_antialiasing": true,
 	"image": "characters/oshano",
 	"position": [
-		70,
+		-100,
 		-80
 	],
 	"healthicon": "oshawott",
@@ -85,5 +85,5 @@
 		380
 	],
 	"sing_duration": 6.1,
-	"scale": 4.8
+	"scale": 2
 }
