@@ -11,6 +11,8 @@ local tweenedHud = {
 
 function onEvent(name, value1, value2)
     if name == 'Hud Fade' then
-        doTweenAlpha('tweenFuck', 'camHUD', value2, value1, elasticInOut)
+        for i, specHud in pairs(tweenedHud) do
+            doTweenAlpha('tween'..i, specHud, value2, value1, elasticInOut)
+        end
     end
 end
