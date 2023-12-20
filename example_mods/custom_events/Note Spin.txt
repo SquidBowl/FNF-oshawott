@@ -1,0 +1,3 @@
+Spin player and opponent notes.
+value1 = Time
+value2 = Easing

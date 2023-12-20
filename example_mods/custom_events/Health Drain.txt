@@ -1,0 +1,2 @@
+Value1: Drain per curStep
+Value2: Max Drain (2 to disable drain, 0 for no limit)

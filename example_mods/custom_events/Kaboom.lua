@@ -1,4 +1,3 @@
--- thank ou bbpanzu
 local angleshit = 1;
 local anglevar = 1;
 local intensity = 0
@@ -52,4 +51,4 @@ function onEvent(n,v,b)
 	end
 
 
-end 
+end

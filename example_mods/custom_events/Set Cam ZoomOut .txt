@@ -1,0 +1,6 @@
+Sets Camera ZoomOut
+
+Value 1: Cam zoomout
+
+Value 2: if blank, it will smoothly zoomout regularly,
+otherwise it will do an instant zoomout

@@ -1,0 +1,2 @@
+Value 1: Opacity (recommend 0 or 1)
+Value 2: Duration
