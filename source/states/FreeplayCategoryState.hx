@@ -89,7 +89,7 @@ class FreeplayCategoryState extends MusicBeatState {
                         FreeplayState.mode = "freeplay";
                         trace("Free Play selected");
                     case 3: // joke
-					CoolUtil.browserLoad('https://twitter.com/VsOshawott');
+					    CoolUtil.browserLoad('https://twitter.com/VsOshawott');
                 }
             }
         }
