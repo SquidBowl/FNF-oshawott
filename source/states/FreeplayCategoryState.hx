@@ -89,7 +89,7 @@ class FreeplayCategoryState extends MusicBeatState {
                         FreeplayState.mode = "freeplay";
                         trace("Free Play selected");
                     case 3: // joke
-                        FlxG.sound.play(Paths.sound('badnoise1'));
+					CoolUtil.browserLoad('https://twitter.com/VsOshawott');
                 }
             }
         }
