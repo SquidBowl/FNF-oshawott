@@ -129,14 +129,6 @@ function onTweenCompleted(tag)
 		noteTweenX("x23", 1, 2000, 0.1, "quartInOut");
 		noteTweenX("x33", 2, 2000, 0.1, "quartInOut");
 		noteTweenX("x43", 3, 2000, 0.1, "quartInOut");
-		noteTweenY("y13", 0, 600, 0.1, "quartInOut");
-		noteTweenY("y23", 1, 600, 0.1, "quartInOut");
-		noteTweenY("y33", 2, 600, 0.1, "quartInOut");
-		noteTweenY("y43", 3, 600, 0.1, "quartInOut");
-		setPropertyFromGroup('opponentStrums', 0, 'downScroll', true)
-		setPropertyFromGroup('opponentStrums', 1, 'downScroll', true)
-		setPropertyFromGroup('opponentStrums', 2, 'downScroll', true)
-		setPropertyFromGroup('opponentStrums', 3, 'downScroll', true)
 	end
 	if tag == "x13" then
 		noteTweenAlpha("x14", 0, 1, 0.1, "linear");
@@ -168,14 +160,6 @@ function onTweenCompleted(tag)
 		noteTweenX("x231", 1, -500, 0.1, "quartInOut");
 		noteTweenX("x331", 2, -500, 0.1, "quartInOut");
 		noteTweenX("x431", 3, -500, 0.1, "quartInOut");
-		noteTweenY("y131", 0, 50, 0.1, "quartInOut");
-		noteTweenY("y231", 1, 50, 0.1, "quartInOut");
-		noteTweenY("y331", 2, 50, 0.1, "quartInOut");
-		noteTweenY("y431", 3, 50, 0.1, "quartInOut");
-		setPropertyFromGroup('opponentStrums', 0, 'downScroll', false)
-		setPropertyFromGroup('opponentStrums', 1, 'downScroll', false)
-		setPropertyFromGroup('opponentStrums', 2, 'downScroll', false)
-		setPropertyFromGroup('opponentStrums', 3, 'downScroll', false)
 	end
 	if tag == "x131" then
 		noteTweenAlpha("x141", 0, 1, 0.1, "linear");
