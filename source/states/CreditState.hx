@@ -5,6 +5,7 @@ import flixel.FlxState;
 import flixel.FlxSprite;
 import flixel.input.keyboard.FlxKey;
 import flixel.addons.transition.FlxTransitionableState;
+import flixel.addons.display.FlxBackdrop;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
 import flixel.text.FlxText;
@@ -42,9 +43,14 @@ class CreditState extends MusicBeatState
         var jsonData: String = File.getContent("assets/shared/data/credits.json");
         CreditData = haxe.Json.parse(jsonData);
 
+        var check:FlxBackdrop = new FlxBackdrop(Paths.image('menus/credits/tile'), XY, FlxG.random.int(0, 0), FlxG.random.int(0, 0));
+		check.scrollFactor.set(0.3, 0.3);     
+		check.velocity.set(20, 0);
+		add(check);
+
         // Visual Shit
         creditui = new FlxSprite(0, 0);
-        creditui.loadGraphic(Paths.image('menus/credits/creditui'));
+        creditui.loadGraphic(Paths.image('menus/credits/UI'));
         add(creditui);
 
         // Changing Sprite 
