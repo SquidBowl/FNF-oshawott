@@ -51,7 +51,7 @@ class CreditState extends MusicBeatState
 
         var check:FlxBackdrop = new FlxBackdrop(Paths.image('menus/credits/tile'), XY, FlxG.random.int(0, 0), FlxG.random.int(0, 0));
 		check.scrollFactor.set(0.3, 0.3);     
-		check.velocity.set(20, 0);
+		check.velocity.set(50, 0);
 		add(check);
 
         creditui = new FlxSprite(0, 0);
