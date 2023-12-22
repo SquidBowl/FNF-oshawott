@@ -20,6 +20,7 @@ class CreditState extends MusicBeatState
     var name: FlxText;
     var quote: FlxText;
     var bg: FlxSprite;
+    var gradient: FlxSprite;
     var creditui: FlxSprite;
     var behindbar: FlxSprite;
     var namecard: FlxSprite;    
@@ -43,12 +44,16 @@ class CreditState extends MusicBeatState
         var jsonData: String = File.getContent("assets/shared/data/credits.json");
         CreditData = haxe.Json.parse(jsonData);
 
+        // Visual Shit
+        gradient = new FlxSprite(0, 0);
+        gradient.loadGraphic(Paths.image('menus/credits/gradient'));
+        add(gradient);
+
         var check:FlxBackdrop = new FlxBackdrop(Paths.image('menus/credits/tile'), XY, FlxG.random.int(0, 0), FlxG.random.int(0, 0));
 		check.scrollFactor.set(0.3, 0.3);     
 		check.velocity.set(20, 0);
 		add(check);
 
-        // Visual Shit
         creditui = new FlxSprite(0, 0);
         creditui.loadGraphic(Paths.image('menus/credits/UI'));
         add(creditui);
@@ -59,7 +64,7 @@ class CreditState extends MusicBeatState
         add(changingSprite);
 
         // Name
-        name = new FlxText(250, 390, 500, "");
+        name = new FlxText(250, 375, 500, "");
         name.setFormat(Paths.font("vcr.ttf"), 46, FlxColor.WHITE, CENTER);
         add(name);
 
