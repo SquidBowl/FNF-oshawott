@@ -43,3 +43,6 @@ doTweenAlpha('introback','camGame',0,2)
 doTweenAlpha('introback2', 'camHUD', 0, 2, 'linear')
 end
 end
+function onDestroy()
+    setPropertyFromClass('backend.ClientPrefs', 'data.timeBarType', 'Enabled')
+end

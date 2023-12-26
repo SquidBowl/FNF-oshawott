@@ -8,6 +8,7 @@ end
 
 function onEvent(name, value1, value2)
     if name == "TurnOffLights" then
-    doTweenAlpha('realblack.alpha', 'realblack', value1, value2, 'linear');
+        setObjectCamera("realblack", 'other')
+        doTweenAlpha('realblack.alpha', 'realblack', value1, value2, 'linear');
     end
 end
