@@ -8,7 +8,7 @@ A mod made in the popular modding engine, Psych Engine; and dedicated to the awe
 * Classic1926 - Assistant Programmer
 
 ### Special Thanks
-* Shadow Marrio - Creator of [Psych Engine](https://github.com/ShadowMario/FNF-PsychEngine)
+* Shadow Mario - Creator of [Psych Engine](https://github.com/ShadowMario/FNF-PsychEngine)
 _____________________________________
 
 README written by SquidBowl/Tinkatonk
