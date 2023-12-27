@@ -4,6 +4,7 @@ A mod made in the popular modding engine, Psych Engine; and dedicated to the awe
 ## Programming contributors:
 * SquidBowl/Tinkatonk - Lead Source Programmer
 * Heckatt - Programmer
+* Celo - Programmer
 * Classic1926 - Assistant Programmer
 
 ### Special Thanks
