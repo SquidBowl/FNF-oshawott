@@ -132,6 +132,9 @@ class PlayState extends MusicBeatState
 	public static var stageUI:String = "normal";
 	public static var isPixelStage(get, never):Bool;
 
+	// le songcard shit maybe more in the future idk
+	var songCard:FlxText;
+
 	@:noCompletion
 	static function get_isPixelStage():Bool
 		return stageUI == "pixel" || stageUI.endsWith("-pixel");
@@ -551,6 +554,14 @@ class PlayState extends MusicBeatState
 		scoreTxt.visible = !ClientPrefs.data.hideHud;
 		updateScore(false);
 		uiGroup.add(scoreTxt);
+
+		// Song card for opening
+		songCard = new FlxText(-1350, 0, 500, curSong);
+		songCard.setFormat(Paths.font("PokemonGB.ttf"), 42, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		songCard.borderSize = 2;
+		songCard.cameras = [camHUD];
+		songCard.screenCenter(Y);
+		add(songCard);
 
 		botplayTxt = new FlxText(400, timeBar.y + 55, FlxG.width - 800, "BOTPLAY", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -1179,6 +1190,8 @@ class PlayState extends MusicBeatState
 
 	function startSong():Void
 	{
+		FlxTween.tween(songCard, { x: 400}, 1, {ease: FlxEase.circOut});	
+
 		startingSong = false;
 
 		@:privateAccess
@@ -3035,6 +3048,11 @@ class PlayState extends MusicBeatState
 
 	override function beatHit()
 	{
+		if (curBeat == 8)
+		{
+			FlxTween.tween(songCard, { x: 1200}, 1, {ease: FlxEase.circOut});	
+		}
+
 		if(lastBeatHit >= curBeat) {
 			//trace('BEAT HIT: ' + curBeat + ', LAST HIT: ' + lastBeatHit);
 			return;

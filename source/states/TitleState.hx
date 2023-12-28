@@ -216,6 +216,14 @@ class TitleState extends MusicBeatState
 		// logoBl.screenCenter();
 		// logoBl.color = FlxColor.BLACK;
 
+		new FlxTimer().start(0.001, function(tmr:FlxTimer)
+			{
+				if (logoBl.angle == -4)
+					FlxTween.angle(logoBl, logoBl.angle, 4, Conductor.crochet * 0.002, {ease: FlxEase.quartInOut});
+				if (logoBl.angle == 4)
+					FlxTween.angle(logoBl, logoBl.angle, -4, Conductor.crochet * 0.002, {ease: FlxEase.quartInOut});
+			}, 0); // and so on.....
+
 		if(ClientPrefs.data.shaders) swagShader = new ColorSwap();
 		gfDance = new FlxSprite(titleJSON.gfx, titleJSON.gfy);
 		gfDance.antialiasing = ClientPrefs.data.antialiasing;
@@ -283,6 +291,8 @@ class TitleState extends MusicBeatState
 		titleText.updateHitbox();
 		// titleText.screenCenter(X);
 		add(titleText);
+
+		FlxTween.tween(logoBl, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG}); // too make it look more cooler
 
 		var logo:FlxSprite = new FlxSprite().loadGraphic(Paths.image('logo'));
 		logo.antialiasing = ClientPrefs.data.antialiasing;
@@ -401,6 +411,12 @@ class TitleState extends MusicBeatState
 			
 			if(pressedEnter)
 			{
+
+				logoBl.angle -= 0;
+
+				FlxTween.tween(logoBl, {y: logoBl.y+2000, angle: -40}, 1.6,{ease: FlxEase.backIn}); // up and down i guess?
+				FlxTween.tween(FlxG.camera, {zoom: 4}, 3, {ease: FlxEase.quartInOut}); // zoomy zoomy when you hit enter enter
+
 				titleText.color = FlxColor.WHITE;
 				titleText.alpha = 1;
 				
