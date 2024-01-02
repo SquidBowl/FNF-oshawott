@@ -1,1 +1,0 @@
-Skips the countdown. That's it.

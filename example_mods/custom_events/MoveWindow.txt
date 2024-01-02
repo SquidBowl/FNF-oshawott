@@ -1,5 +1,0 @@
-oh god you can change the window position
-note that default position is 128, 64
-
-Value 1: x
-Value 2: y
